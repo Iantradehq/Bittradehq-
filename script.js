@@ -1,6 +1,14 @@
+const APP_ID = "33VbNHVpYmxTsHQYWYy4j";
+
 const loginBtn = document.getElementById("loginBtn");
-const status = document.getElementById("status");
 
 loginBtn.addEventListener("click", () => {
-    status.innerText = "Deriv login will be added next.";
+
+    const redirect = window.location.origin + window.location.pathname;
+
+    const loginUrl =
+        `https://oauth.deriv.com/oauth2/authorize?app_id=${APP_ID}&l=EN&redirect_uri=${encodeURIComponent(redirect)}`;
+
+    window.location.href = loginUrl;
+
 });
