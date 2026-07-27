@@ -1,15 +1,28 @@
+// BitTradeHQ App
+
+const APP_ID = "33VbNHVpYmxTsHQYWYy4j";
+
 const loginBtn = document.getElementById("loginBtn");
-const accountName = document.getElementById("accountName");
-const balance = document.getElementById("balance");
-const marketStatus = document.getElementById("marketStatus");
+const connectBtn = document.getElementById("connectBtn");
+const status = document.getElementById("status");
 
-marketStatus.textContent = "Online";
+function connectDeriv() {
 
-loginBtn.addEventListener("click", () => {
-    alert("Deriv login will be connected in the next step.");
-});
+    status.textContent = "Connecting...";
 
-function updateDashboard(name, amount) {
-    accountName.textContent = name;
-    balance.textContent = amount;
+    const redirect =
+        "https://oauth.deriv.com/oauth2/authorize?app_id=" +
+        APP_ID;
+
+    window.location.href = redirect;
 }
+
+if (loginBtn) {
+    loginBtn.addEventListener("click", connectDeriv);
+}
+
+if (connectBtn) {
+    connectBtn.addEventListener("click", connectDeriv);
+}
+
+console.log("BitTradeHQ Loaded");
