@@ -93,12 +93,39 @@ const CONFIG = {
 
 async function login(request, env) {
 
-  return json({
+  const state = crypto.randomUUID();
 
-    message:
-      "Login function will be completed in Part 2."
+  const authUrl = new URL(CONFIG.AUTH_URL);
 
-  });
+  authUrl.searchParams.set(
+    "client_id",
+    CONFIG.CLIENT_ID
+  );
+
+  authUrl.searchParams.set(
+    "redirect_uri",
+    CONFIG.REDIRECT_URI
+  );
+
+  authUrl.searchParams.set(
+    "response_type",
+    "code"
+  );
+
+  authUrl.searchParams.set(
+    "scope",
+    "read"
+  );
+
+  authUrl.searchParams.set(
+    "state",
+    state
+  );
+
+  return Response.redirect(
+    authUrl.toString(),
+    302
+  );
 
 }
 
