@@ -1,28 +1,31 @@
-// BitTradeHQ App
-
-const APP_ID = "33VbNHVpYmxTsHQYWYy4j";
+// BitTradeHQ Frontend
 
 const loginBtn = document.getElementById("loginBtn");
 const connectBtn = document.getElementById("connectBtn");
 const status = document.getElementById("status");
 
-function connectDeriv() {
-
+async function login() {
     status.textContent = "Connecting...";
 
-    const redirect =
-        "https://oauth.deriv.com/oauth2/authorize?app_id=" +
-        APP_ID;
+    try {
+        const response = await fetch(
+            "https://bittradehq-auth-v2.ianmunene391.workers.dev/login"
+        );
 
-    window.location.href = redirect;
+        const data = await response.json();
+
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            status.textContent = "Login unavailable";
+        }
+    } catch (error) {
+        console.error(error);
+        status.textContent = "Connection failed";
+    }
 }
 
-if (loginBtn) {
-    loginBtn.addEventListener("click", connectDeriv);
-}
-
-if (connectBtn) {
-    connectBtn.addEventListener("click", connectDeriv);
-}
+if (loginBtn) loginBtn.addEventListener("click", login);
+if (connectBtn) connectBtn.addEventListener("click", login);
 
 console.log("BitTradeHQ Loaded");
