@@ -4,44 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitTradeHQ</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>BitTradeHQ</h1>
-    <button id="loginBtn">Login with Deriv</button>
+<header class="navbar">
+    <div class="logo">
+        BitTradeHQ
+    </div>
+
+    <button id="loginBtn" class="login-btn">
+        Login with Deriv
+    </button>
 </header>
 
-<main>
-
 <section class="hero">
-    <h2>Trade Smarter.</h2>
-    <p>Professional trading dashboard powered by BitTradeHQ.</p>
-</section>
 
-<section class="cards">
+    <h1>Trade Smarter.</h1>
 
-<div class="card">
-<h3>Account</h3>
-<p>Not connected</p>
-</div>
-
-<div class="card">
-<h3>Balance</h3>
-<p>--</p>
-</div>
-
-<div class="card">
-<h3>Market Status</h3>
-<p>Waiting for connection...</p>
-</div>
+    <p>
+        Professional trading dashboard powered by Deriv API.
+    </p>
 
 </section>
 
-</main>
+<section class="dashboard">
 
-<script src="script.js"></script>
+    <div class="card">
+
+        <h2>Account</h2>
+
+        <p id="accountName">
+            Not Connected
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Balance</h2>
+
+        <p id="balance">
+            --
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Market Status</h2>
+
+        <p id="marketStatus">
+            Waiting for connection...
+        </p>
+
+    </div>
+
+</section>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
