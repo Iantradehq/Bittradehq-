@@ -160,3 +160,15 @@ grid-template-columns:1fr 1fr;
 }
 
 }
+#marketTable tr{
+cursor:pointer;
+transition:.3s;
+}
+
+#marketTable tr:hover{
+background:#1f2937;
+}
+
+#marketTable td{
+font-weight:500;
+}
