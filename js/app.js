@@ -1,31 +1,39 @@
-// BitTradeHQ Frontend
+window.addEventListener("load", () => {
 
-const loginBtn = document.getElementById("loginBtn");
-const connectBtn = document.getElementById("connectBtn");
-const status = document.getElementById("status");
+    if (typeof TradingView !== "undefined") {
 
-async function login() {
-    status.textContent = "Connecting...";
+        new TradingView.widget({
 
-    try {
-        const response = await fetch(
-            "https://bittradehq-auth-v2.ianmunene391.workers.dev/login"
-        );
+            container_id: "tradingview_chart",
 
-        const data = await response.json();
+            autosize: true,
 
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            status.textContent = "Login unavailable";
-        }
-    } catch (error) {
-        console.error(error);
-        status.textContent = "Connection failed";
+            symbol: "OANDA:XAUUSD",
+
+            interval: "15",
+
+            timezone: "Africa/Nairobi",
+
+            theme: "dark",
+
+            style: "1",
+
+            locale: "en",
+
+            toolbar_bg: "#111827",
+
+            enable_publishing: false,
+
+            hide_top_toolbar: false,
+
+            hide_legend: false,
+
+            save_image: true,
+
+            withdateranges: true
+
+        });
+
     }
-}
 
-if (loginBtn) loginBtn.addEventListener("click", login);
-if (connectBtn) connectBtn.addEventListener("click", login);
-
-console.log("BitTradeHQ Loaded");
+});
