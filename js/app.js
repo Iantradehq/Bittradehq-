@@ -1,39 +1,57 @@
+let widget;
+
 window.addEventListener("load", () => {
 
-    if (typeof TradingView !== "undefined") {
+    createChart("OANDA:XAUUSD");
 
-        new TradingView.widget({
+    document.querySelectorAll("#marketTable tr").forEach(row => {
 
-            container_id: "tradingview_chart",
+        row.addEventListener("click", () => {
 
-            autosize: true,
+            const symbol = row.dataset.symbol;
 
-            symbol: "OANDA:XAUUSD",
-
-            interval: "15",
-
-            timezone: "Africa/Nairobi",
-
-            theme: "dark",
-
-            style: "1",
-
-            locale: "en",
-
-            toolbar_bg: "#111827",
-
-            enable_publishing: false,
-
-            hide_top_toolbar: false,
-
-            hide_legend: false,
-
-            save_image: true,
-
-            withdateranges: true
+            createChart(symbol);
 
         });
 
-    }
+    });
 
 });
+
+function createChart(symbol){
+
+    const chart=document.getElementById("tradingview_chart");
+
+    chart.innerHTML="";
+
+    widget=new TradingView.widget({
+
+        container_id:"tradingview_chart",
+
+        autosize:true,
+
+        symbol:symbol,
+
+        interval:"15",
+
+        timezone:"Africa/Nairobi",
+
+        theme:"dark",
+
+        style:"1",
+
+        locale:"en",
+
+        toolbar_bg:"#111827",
+
+        enable_publishing:false,
+
+        withdateranges:true,
+
+        hide_side_toolbar:false,
+
+        allow_symbol_change:false
+
+    });
+
+}
