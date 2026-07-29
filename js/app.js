@@ -140,3 +140,19 @@ riskInput.addEventListener("input",updateRisk);
 updateRisk();
 
 }
+// ---------------------------
+// Deriv Login Button
+// ---------------------------
+
+function connectDeriv() {
+    window.location.href =
+        BITTRADEHQ.WORKER_URL + "/login";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.getElementById("connectDeriv");
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", connectDeriv);
+    }
+});
