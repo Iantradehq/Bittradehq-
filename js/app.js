@@ -113,3 +113,30 @@ Status: Pending API Connection
 `;
 
 }
+const balance = 100;
+
+const riskInput = document.getElementById("risk");
+
+const riskAmount = document.getElementById("riskAmount");
+
+const positionSize = document.getElementById("positionSize");
+
+function updateRisk(){
+
+const riskPercent = Number(riskInput.value) || 0;
+
+const moneyRisk = balance * (riskPercent/100);
+
+riskAmount.textContent = "$" + moneyRisk.toFixed(2);
+
+positionSize.textContent = (moneyRisk/100).toFixed(2);
+
+}
+
+if(riskInput){
+
+riskInput.addEventListener("input",updateRisk);
+
+updateRisk();
+
+}
