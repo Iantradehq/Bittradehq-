@@ -306,3 +306,36 @@ grid-template-columns:1fr;
 }
 
 }
+.risk-box{
+
+margin-top:25px;
+
+background:#0f172a;
+
+padding:18px;
+
+border-radius:10px;
+
+border:1px solid #1f2937;
+
+}
+
+.risk-box h3{
+
+margin-bottom:15px;
+
+color:#22c55e;
+
+}
+
+.risk-box p{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:10px;
+
+color:#cbd5e1;
+
+}
